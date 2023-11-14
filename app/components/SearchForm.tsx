@@ -2,6 +2,7 @@
 import { ChangeEvent, FormEvent, useState } from "react"
 
 interface Props {
+    isLoading?: boolean
     onKeywordChange?: (keyword: string) => void
     onQuickSearchKeywordChange?: (keyword: string) => void
 }
@@ -32,12 +33,14 @@ const SearchForm = (props: Props) => {
             id='search-form'
             className='flex gap-2 flex-col md:flex-row'>
             <input 
+                disabled={props.isLoading}
                 onChange={handleInputChange}
                 name="keyword"
                 required
                 className="rounded-md px-4 py-2"
                 type="search" placeholder="Search for a stock by name or symbol" />
             <button 
+                disabled={props.isLoading}
                 className="p-2 bg-blue-600 text-white rounded-md"
                 type="submit">Search</button>
         </form>
