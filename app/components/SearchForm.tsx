@@ -14,7 +14,7 @@ const SearchForm = (props: Props) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget)
         const formValues = Object.fromEntries(formData) as { keyword: string };
-        props.onKeywordChange && props.onKeywordChange(formValues.keyword)
+        props.onKeywordChange?.(formValues.keyword)
     }
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -22,12 +22,8 @@ const SearchForm = (props: Props) => {
             clearTimeout(quickOptionsTimeout)
         }
         setQuickOptionsTimeout(setTimeout( () => {
-            handleQuickOptions(e.target.value)
+            props.onQuickSearchKeywordChange?.(e.target.value) 
         }, 300 ))
-    }
-
-    const handleQuickOptions = (keyword: string) => {
-        console.log('Quick options for keyword: ', keyword)
     }
 
     return (
