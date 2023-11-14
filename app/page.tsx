@@ -1,11 +1,19 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchForm from "./components/SearchForm";
 
 export default function Home() {
 
   const [keyword, setKeyword] = useState('')
   const [quickSearchKeyword, setQuickSearchKeyword] = useState<string | undefined>()
+
+  useEffect( () => {
+    console.log('Keyword changed: ', keyword)
+  }, [keyword])
+
+  useEffect( () => {
+    console.log('Quick search keyword changed: ', quickSearchKeyword)
+  }, [quickSearchKeyword])
 
   return (
     <main className="m-5">
