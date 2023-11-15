@@ -1,15 +1,28 @@
-
+export interface StockData {
+    "1. symbol": string,
+    "2. name": string,
+    "3. type": string,
+    "4. region": string,
+    "5. marketOpen": string,
+    "6. marketClose": string,
+    "7. timezone": string,
+    "8. currency": string,
+    "9. matchScore": string
+}
+export interface SearchResultData {
+    bestMatches: StockData[]
+}
 
 const useClientAPICall = () => {
 
-    const fetchAPI = async (keyword: string) => {
-        const response = await fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=ZA3SJ6SO972O210N`)
+    const fetchAPI = async (keyword: string): Promise<SearchResultData> => {
+        const response = await fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=YSUSFDTUPQX68SVG`)
         const data = await response.json()
+        console.log(data)
         if ( data['bestMatches'] ) {
-            return data;
+            return data as SearchResultData;
         } else if ( data['Information'] ) {
-            console.log('API call limit reached')
-            console.warn('Using fake information!')
+            console.warn('API call limit reached! Using fake information!')
             return {
                 "bestMatches": [
                     {
@@ -68,12 +81,13 @@ const useClientAPICall = () => {
                         "9. matchScore": "0.5455"
                     }
                 ]
-            }
+            } as SearchResultData
         }
         throw new Error('Something went wrong with the API call')
     }
-    
-    return { getData: fetchAPI}
+
+
+    return { getData: fetchAPI }
 }
 
 export default useClientAPICall;
