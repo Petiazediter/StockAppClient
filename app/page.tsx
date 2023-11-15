@@ -41,7 +41,10 @@ export default function Home() {
         onKeywordChange={setKeyword}
         onQuickSearchKeywordChange={setQuickSearchKeyword}
         />
-      { data && <StockList stocks={data.bestMatches} /> }
+      <StockList
+        isLoading={isLoading} 
+        stocks={data?.bestMatches}
+      />
     </main>  
   )
 }
