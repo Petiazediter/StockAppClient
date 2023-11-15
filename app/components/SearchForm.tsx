@@ -31,7 +31,7 @@ const SearchForm = (props: Props) => {
         <form 
             onSubmit={handleSearch}
             id='search-form'
-            className='flex gap-2 flex-col md:flex-row'>
+            className='my-5 flex gap-2 justify-center flex-col md:flex-row'>
             <input 
                 disabled={props.isLoading}
                 onChange={handleInputChange}
@@ -41,7 +41,7 @@ const SearchForm = (props: Props) => {
                 type="search" placeholder="Search for a stock by name or symbol" />
             <button 
                 disabled={props.isLoading}
-                className="p-2 bg-blue-600 text-white rounded-md"
+                className="p-2 bg-blue-600 disabled:bg-gray-400 text-white rounded-md"
                 type="submit">Search</button>
         </form>
     )
