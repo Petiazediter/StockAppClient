@@ -1,23 +1,30 @@
 "use client"
 import { useEffect, useState } from "react";
 import SearchForm from "./components/SearchForm";
-import useClientAPICall from "./hooks/useClientAPICall";
+import useClientAPICall, { SearchResultData } from "./hooks/useClientAPICall";
+import StockList from "./components/StockList";
 
 export default function Home() {
 
   const [keyword, setKeyword] = useState('')
   const [quickSearchKeyword, setQuickSearchKeyword] = useState<string | undefined>()
   const [isLoading, setIsLoading] = useState(false)
+  const [data, setData] = useState<SearchResultData | undefined>()
 
   const { getData } = useClientAPICall()
 
   useEffect( () => {
-    setIsLoading(true)
-    getData(keyword)
-      .then( v => {
-        setIsLoading(false)
-        console.log('Data received: ', v)
-      })
+    if ( !(keyword.replaceAll(' ', '') === '') ) {
+      setIsLoading(true)
+      getData(keyword)
+        .then( v => {
+          setData(v)
+          console.log('Data: ', v)
+          setIsLoading(false)
+        })
+    } else {
+      setData(undefined)
+    }
   }, [keyword])
 
   useEffect( () => {
@@ -25,13 +32,16 @@ export default function Home() {
   }, [quickSearchKeyword])
 
   return (
-    <main className="m-5">
-      <h1 className='text-3xl m-4'>Hello Search view!</h1>
+    <main className="p-5 w-full">
+      <h1 className='text-3xl m-4 text-center font-extrabold'>
+        Hello Search view!
+      </h1>
       <SearchForm 
         isLoading={isLoading}
         onKeywordChange={setKeyword}
         onQuickSearchKeywordChange={setQuickSearchKeyword}
         />
+      { data && <StockList stocks={data.bestMatches} /> }
     </main>  
   )
 }
