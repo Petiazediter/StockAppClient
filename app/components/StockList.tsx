@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { StockData } from "../hooks/useClientAPICall"
 import LoadingBlock from "./LoadingBlock"
 import StockItem from "./StockItem"
@@ -23,15 +24,16 @@ const StockList = ({ stocks, isLoading, loadingBlocks = 5 }: Props) => {
     }
 
     return (
-        <div className='flex flex-col gap-2'>
-            { stocks && 
-                stocks.map( (stock, i) => {
+        <ul className=' grid grid-cols-1 md:grid-cols-3 gap-2'>
+            { stocks.map( (stock, i) => {
                     return (
-                        <StockItem stock={stock} key={`stock-list-item-${stock['1. symbol']}`} />
+                        <Link href={`/stock/${stock['1. symbol']}`} key={`stock-list-item-${stock['1. symbol']}`}>
+                            <StockItem stock={stock} />
+                        </Link>
                     )
                 })
             }
-        </div>
+        </ul>
     )
 
 }
