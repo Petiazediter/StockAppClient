@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <main className="p-5 w-full">
       <h1 className='text-3xl m-4 text-center font-extrabold'>
-        Hello Search view!
+        Stock App
       </h1>
       <SearchForm 
         isLoading={isLoading}

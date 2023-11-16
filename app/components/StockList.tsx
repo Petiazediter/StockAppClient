@@ -9,11 +9,11 @@ interface Props {
 
 const StockList = ({ stocks, isLoading }: Props) => {
     if ( !stocks && !isLoading ) {
-        return <h2>Search for a stock by name or symbol</h2>
+        return <h2 className='text-center mt-5'>Search for a stock by name or symbol</h2>
     }
 
     if ( stocks && stocks.length === 0 ) {
-        return <h2>No results!</h2>
+        return <h2 className='text-center mt-5'>No results!</h2>
     }
 
     return (
