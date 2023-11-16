@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { StockData } from "../hooks/useClientAPICall"
 
 interface Props {
@@ -5,10 +6,10 @@ interface Props {
 }
 
 const StockItem = ({stock}: Props) => {
-    return <li className='shadow-md my-2 p-5 rounded-md cursor-pointer'>
+    return <Link href={`/stock/${stock['1. symbol']}`} key={`stock-list-item-${stock['1. symbol']}`}>
         <h2 className='font-bold text-lg'>{stock['2. name']}</h2>
         <p className='text-sm'>{stock['1. symbol']}</p>
-    </li>
+    </Link>
 }
 
 export default StockItem
