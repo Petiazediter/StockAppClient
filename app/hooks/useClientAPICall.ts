@@ -16,7 +16,7 @@ export interface SearchResultData {
 const useClientAPICall = () => {
 
     const fetchAPI = async (keyword: string): Promise<SearchResultData> => {
-        const response = await fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=YSUSFDTUPQX68SVG`)
+        const response = await fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=${process.env.NEXT_PUBLIC_ALPHA_VANTAGE_API_KEY}`)
         const data = await response.json()
         console.log(data)
         if ( data['bestMatches'] ) {

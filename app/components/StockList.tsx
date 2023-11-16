@@ -8,7 +8,7 @@ interface Props {
 }
 
 const StockList = ({ stocks, isLoading }: Props) => {
-    if ( !stocks ) {
+    if ( !stocks && !isLoading ) {
         return <h2>Search for a stock by name or symbol</h2>
     }
 
@@ -20,7 +20,7 @@ const StockList = ({ stocks, isLoading }: Props) => {
       
         <CardList 
             isLoading={isLoading}
-            data={stocks.map( (stock) => (
+            data={stocks?.map( (stock) => (
                 {
                     key: stock['1. symbol'],
                     value: (<StockItem stock={stock} />)
