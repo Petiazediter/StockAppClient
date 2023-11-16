@@ -1,7 +1,9 @@
 import CardList from "@/app/components/CardList"
 
 const getStockData = async (symbol: string) => {
-    const res = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=${process.env.ALPHAVANTAGE_API_KEY}`)
+    const res = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=${process.env.ALPHAVANTAGE_API_KEY}`, {
+        cache: 'force-cache'
+    })
     const data = await res.json()
     
     if ( data.Name && data.Symbol && data.Description ) {
