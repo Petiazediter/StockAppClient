@@ -1,6 +1,7 @@
 # Stock App Client
 
 Unfortunately ran out of time so only includes the MVP features.
+Because of the API limitations, sometimes the app will just use mocked data. A console warning will pop-up to indicate if this is happening.
 
 ## Run the application
 
