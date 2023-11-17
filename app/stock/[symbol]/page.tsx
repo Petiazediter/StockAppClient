@@ -73,8 +73,6 @@ const StockDetailPage = async ({ params, searchParams }: any) => {
 
     const { symbol } = params
     const stockData: StockDetails = await getStockData(symbol)
-    
-    console.log(stockData)
 
     const cardData = Object.entries(stockData).filter(([key]) => (key !== 'Description' && key !== 'Name' && key !== 'Symbol'))
 
