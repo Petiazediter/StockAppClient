@@ -17,7 +17,6 @@ const StockList = ({ stocks, isLoading }: Props) => {
     }
 
     return (
-      
         <CardList 
             isLoading={isLoading}
             data={stocks?.map( (stock) => (
