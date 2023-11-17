@@ -14,7 +14,7 @@ const CardList = (props: Props) => {
 
     return (
         <ul 
-            className={`grid grid-cols-1 md:grid-cols-3 gap-2 ${props.containerClassName}`}>
+            className={`grid w-full grid-cols-1 md:grid-cols-3 gap-2 ${props.containerClassName}`}>
             { 
                 props.isLoading ?
                     Array.from(new Array(5)).map((v) => (

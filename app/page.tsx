@@ -46,7 +46,7 @@ export default function Home() {
   }, [quickSearchKeyword])
 
   return (
-    <main className="p-5 w-full">
+    <main className="p-5 w-full flex justify-center flex-col items-center">
       <h1 className='text-3xl m-4 text-center font-extrabold'>
         Stock App
       </h1>

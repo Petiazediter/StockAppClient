@@ -54,7 +54,7 @@ const SearchForm = (props: Props) => {
         <form 
             onSubmit={handleSearch}
             id='search-form'
-            className='my-5 w-1/2 flex gap-2 justify-center flex-col md:flex-row relative' >
+            className='my-5 w-full md:w-1/2 flex gap-2 justify-center flex-col md:flex-row relative' >
             <input 
                 disabled={props.isLoading}
                 onChange={handleInputChange}
