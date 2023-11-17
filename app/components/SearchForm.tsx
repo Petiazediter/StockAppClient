@@ -40,6 +40,16 @@ const SearchForm = (props: Props) => {
         props.onQuickSearchKeywordChange?.('')
     }
 
+    window.onclick = (e) => {
+        if ( 
+            e.target !== document.getElementById('search-form')
+            && e.target !== document.getElementById('suggestions')
+            ) 
+        {
+            handleBlur()
+        }
+    }
+
     return (
         <form 
             onSubmit={handleSearch}

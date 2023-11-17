@@ -30,7 +30,7 @@ const Suggestions = (props: Props) => {
         }
     }
 
-    return <div className='absolute w-3/5 top-full left-0 shadow-md bg-white mt-2 rounded-md p-2'>
+    return <div id='suggestions' className='absolute w-3/5 top-full left-0 shadow-md bg-white mt-2 rounded-md p-2'>
         <h1 className='font-bold'>Quick search:</h1>
         <ul className='divide-y-2'>
             {renderContent()}

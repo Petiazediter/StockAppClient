@@ -50,7 +50,7 @@ export default function Home() {
       <h1 className='text-3xl m-4 text-center font-extrabold'>
         Stock App
       </h1>
-      <SearchForm 
+      <SearchForm
         isLoading={isLoading}
         onKeywordChange={setKeyword}
         onQuickSearchKeywordChange={setQuickSearchKeyword}
