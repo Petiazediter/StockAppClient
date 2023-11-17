@@ -1,10 +1,19 @@
-# Localhost
+# Stock App Client
+
+Unfortunately ran out of time so only includes the MVP features.
+
+## Run the application
+
+1) Run it locally
+2) Visit the deployed version
+
+#### Localhost
 
 ```bash
 npm run dev
 ```
 
-# Visit the deployed version on vercel
+#### Visit the deployed version on vercel
 
 [link](https://stock-app-client-o32be27zz-petiazediter.vercel.app/)
 
